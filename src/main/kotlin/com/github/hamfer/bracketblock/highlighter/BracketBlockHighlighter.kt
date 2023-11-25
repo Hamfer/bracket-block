@@ -18,14 +18,15 @@ import java.util.*
 
 class BracketBlockHighlighter(private val editor: Editor) {
     private var languageBracePairs: HashMap<String, List<Pair<IElementType, IElementType>>> = HashMap()
-    val NON_OFFSET = -1
-    val HIGHLIGHT_LAYER_WEIGHT = 100
+    private val NON_OFFSET = -1
+    private val HIGHLIGHT_LAYER_WEIGHT = 100
     private val EMPTY_BRACE_PAIR: BracePair? = null
 
-    val psiFile: PsiFile? = editor.project?.let { PsiDocumentManager.getInstance(it).getPsiFile(editor.document) }
+    private var psiFile: PsiFile?
 
     init {
         val languageList = Language.getRegisteredLanguages()
+        psiFile = editor.project?.let { PsiDocumentManager.getInstance(it).getPsiFile(editor.document) }
         for (language in languageList) {
             val pairedBraceMatcher = LanguageBraceMatching.INSTANCE.forLanguage(language)
             if (pairedBraceMatcher != null) {
@@ -121,7 +122,7 @@ class BracketBlockHighlighter(private val editor: Editor) {
     }
 
     private fun getSupportedBraceToken(): List<Pair<IElementType, IElementType>>? {
-        return languageBracePairs[psiFile!!.language.id]
+        return languageBracePairs[psiFile?.language?.id]
     }
 
     private fun isBlockCaret(): Boolean {
