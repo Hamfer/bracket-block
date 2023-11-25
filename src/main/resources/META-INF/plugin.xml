@@ -1,18 +1,13 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
     <id>com.github.hamfer.bracketblock</id>
-    <name>bracket-block Template</name>
+    <name>Bracket Block</name>
     <vendor>hamfer</vendor>
 
     <depends>com.intellij.modules.platform</depends>
 
-    <resource-bundle>messages.MyBundle</resource-bundle>
-
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.hamfer.bracketblock.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
+        <editorFactoryListener
+                implementation="com.github.hamfer.bracketblock.listeners.BracketBlockEditorFactoryListener"/>
     </extensions>
-
-    <applicationListeners>
-        <listener class="com.github.hamfer.bracketblock.listeners.MyApplicationActivationListener" topic="com.intellij.openapi.application.ApplicationActivationListener"/>
-    </applicationListeners>
 </idea-plugin>
