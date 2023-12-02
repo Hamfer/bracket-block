@@ -2,9 +2,11 @@
 <idea-plugin>
     <id>com.github.hamfer.bracketblock</id>
     <name>Bracket Block</name>
-    <vendor>hamfer</vendor>
+    <vendor>Ilham Ferdian Rudianata</vendor>
 
     <depends>com.intellij.modules.platform</depends>
+
+    <description>Nested Block Highlighting for JetBrains Product</description>
 
     <extensions defaultExtensionNs="com.intellij">
         <editorFactoryListener
