@@ -27,7 +27,9 @@
 [//]: # (- [ ] Click the <kbd>Watch</kbd> button on the top of the [IntelliJ Platform Plugin Template][template] to be notified about releases containing new features and fixes.)
 
 <!-- Plugin description -->
-Nested Block Highlighting for JetBrains Product
+Nested Block Highlighting for JetBrains Product.
+Enhance your coding experience with the Nested Block Highlighting Plugin for JetBrains IDEs!
+Usage: Just install the plugin, and It's ready to use.
 <!-- Plugin description end -->
 
 ## Installation

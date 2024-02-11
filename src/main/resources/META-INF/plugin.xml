@@ -6,8 +6,6 @@
 
     <depends>com.intellij.modules.platform</depends>
 
-    <description>Nested Block Highlighting for JetBrains Product</description>
-
     <extensions defaultExtensionNs="com.intellij">
         <editorFactoryListener
                 implementation="com.github.hamfer.bracketblock.listeners.BracketBlockEditorFactoryListener"/>
