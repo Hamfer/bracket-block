@@ -1,8 +1,8 @@
 # bracket-block
 
 ![Build](https://github.com/Hamfer/bracket-block/workflows/Build/badge.svg)
-[![Version](https://img.shields.io/jetbrains/plugin/v/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
-[![Downloads](https://img.shields.io/jetbrains/plugin/d/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
+[![Version](https://img.shields.io/jetbrains/plugin/v/23199-bracket-block.svg)](https://plugins.jetbrains.com/plugin/23199-bracket-block)
+[![Downloads](https://img.shields.io/jetbrains/plugin/d/23199-bracket-block.svg)](https://plugins.jetbrains.com/plugin/23199-bracket-block)
 
 [//]: # (## Template ToDo list)
 
