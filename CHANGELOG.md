@@ -2,7 +2,15 @@
 
 # bracket-block Changelog
 
-## [Unreleased]
+## [0.1.0] - 2024-09-04
+
+### Added
+- Added border color settings
+
+## [0.0.7] - 2024-08-16
+
+### Added
+- Added icons
 
 ## [0.0.1] - 2023-11-25
 
