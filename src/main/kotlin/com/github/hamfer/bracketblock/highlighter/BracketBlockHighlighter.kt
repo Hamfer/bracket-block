@@ -3,6 +3,7 @@ package com.github.hamfer.bracketblock.highlighter
 import com.github.hamfer.bracketblock.adapter.BraceMatchingUtilAdapter
 import com.github.hamfer.bracketblock.brace.BracePair
 import com.github.hamfer.bracketblock.brace.BraceTokenTypes
+import com.github.hamfer.bracketblock.settings.PluginSettings
 import com.intellij.lang.Language
 import com.intellij.lang.LanguageBraceMatching
 import com.intellij.openapi.editor.Editor
@@ -104,7 +105,9 @@ class BracketBlockHighlighter(private val editor: Editor) {
 
     fun highlightBracketBlock(bracePair: BracePair?): RangeHighlighter? {
         return if (bracePair != null) {
-            val textAttribute = TextAttributes(null, null, Color.WHITE, EffectType.ROUNDED_BOX, Font.PLAIN)
+            val state = PluginSettings.getInstance().state
+            println(state.borderColor.toString())
+            val textAttribute = TextAttributes(null, null, state.borderColor, EffectType.ROUNDED_BOX, Font.PLAIN)
             editor.markupModel.addRangeHighlighter(
                 bracePair.leftBrace.offset,
                 bracePair.rightBrace.offset,

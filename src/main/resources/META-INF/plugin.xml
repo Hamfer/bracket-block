@@ -9,5 +9,7 @@
     <extensions defaultExtensionNs="com.intellij">
         <editorFactoryListener
                 implementation="com.github.hamfer.bracketblock.listeners.BracketBlockEditorFactoryListener"/>
+        <applicationConfigurable instance="com.github.hamfer.bracketblock.settings.PluginSettingsConfigurable" displayName="Bracket Block"/>
+        <applicationService serviceImplementation="com.github.hamfer.bracketblock.settings.PluginSettings"/>
     </extensions>
 </idea-plugin>
