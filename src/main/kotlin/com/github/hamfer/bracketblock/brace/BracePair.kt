@@ -48,16 +48,6 @@ class BracePair {
             return this
         }
 
-        fun leftIterator(iterator: HighlighterIterator?): BracePairBuilder {
-            leftIterator = iterator
-            return this
-        }
-
-        fun rightIterator(iterator: HighlighterIterator?): BracePairBuilder {
-            rightIterator = iterator
-            return this
-        }
-
         fun leftOffset(offset: Int): BracePairBuilder {
             leftOffset = offset
             return this
@@ -65,16 +55,6 @@ class BracePair {
 
         fun rightOffset(offset: Int): BracePairBuilder {
             rightOffset = offset
-            return this
-        }
-
-        fun leftText(text: String?): BracePairBuilder {
-            leftText = text
-            return this
-        }
-
-        fun rightText(text: String?): BracePairBuilder {
-            rightText = text
             return this
         }
 

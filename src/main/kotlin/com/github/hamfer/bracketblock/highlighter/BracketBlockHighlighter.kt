@@ -12,16 +12,12 @@ import com.intellij.openapi.editor.markup.*
 import com.intellij.psi.PsiDocumentManager
 import com.intellij.psi.PsiFile
 import com.intellij.psi.tree.IElementType
-import java.awt.Color
 import java.awt.Font
 import java.util.*
 
 
 class BracketBlockHighlighter(private val editor: Editor) {
     private var languageBracePairs: HashMap<String, List<Pair<IElementType, IElementType>>> = HashMap()
-    private val NON_OFFSET = -1
-    private val HIGHLIGHT_LAYER_WEIGHT = 100
-    private val EMPTY_BRACE_PAIR: BracePair? = null
 
     private var psiFile: PsiFile?
 
@@ -66,25 +62,25 @@ class BracketBlockHighlighter(private val editor: Editor) {
                     psiFile?.fileType,
                     isBlockCaret
                 )
-                if (leftBraceOffset != NON_OFFSET && rightBraceOffset != NON_OFFSET) {
+                if (leftBraceOffset != BracketBlockConstant.NON_OFFSET && rightBraceOffset != BracketBlockConstant.NON_OFFSET) {
                     return BracePair.BracePairBuilder().leftType(braceTokenPair.first).rightType(braceTokenPair.second)
                         .leftOffset(leftBraceOffset).rightOffset(rightBraceOffset).build()
                 }
             }
         }
-        return EMPTY_BRACE_PAIR
+        return null
     }
 
     private fun findClosetBracePairInStringSymbols(offset: Int): BracePair? {
-        if (offset < 0 || editor.document.immutableCharSequence.isEmpty()) return EMPTY_BRACE_PAIR
+        if (offset < 0 || editor.document.immutableCharSequence.isEmpty()) return null
         val editorHighlighter = (editor as EditorEx).highlighter
         val iterator = editorHighlighter.createIterator(offset)
         val type: IElementType = iterator.tokenType
         val isBlockCaret: Boolean = this.isBlockCaret()
-        if (!BraceMatchingUtilAdapter.isStringToken(type)) return EMPTY_BRACE_PAIR
+        if (!BraceMatchingUtilAdapter.isStringToken(type)) return null
         val leftOffset = iterator.start
         val rightOffset = iterator.end
-        return if (!isBlockCaret && leftOffset == offset) EMPTY_BRACE_PAIR else BracePair.BracePairBuilder()
+        return if (!isBlockCaret && leftOffset == offset) null else BracePair.BracePairBuilder()
             .leftType(BraceTokenTypes.DOUBLE_QUOTE).rightType(BraceTokenTypes.DOUBLE_QUOTE).leftOffset(leftOffset)
             .rightOffset(rightOffset).build()
     }
@@ -111,7 +107,7 @@ class BracketBlockHighlighter(private val editor: Editor) {
             editor.markupModel.addRangeHighlighter(
                 bracePair.leftBrace.offset,
                 bracePair.rightBrace.offset,
-                HighlighterLayer.SELECTION + HIGHLIGHT_LAYER_WEIGHT,
+                HighlighterLayer.SELECTION + BracketBlockConstant.HIGHLIGHT_LAYER_WEIGHT,
                 textAttribute,
                 HighlighterTargetArea.EXACT_RANGE
             )

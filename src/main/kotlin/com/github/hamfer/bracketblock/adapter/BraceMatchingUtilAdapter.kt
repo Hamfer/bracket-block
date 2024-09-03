@@ -17,7 +17,7 @@ import kotlin.collections.HashSet
 
 
 object BraceMatchingUtilAdapter {
-    val STRING_TOKEN_SET: MutableSet<String> = HashSet()
+    private val STRING_TOKEN_SET: MutableSet<String> = HashSet()
 
     init {
         STRING_TOKEN_SET.add(GROOVY_STRING_TOKEN)
