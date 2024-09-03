@@ -12,11 +12,12 @@ import com.intellij.codeInsight.highlighting.BraceMatchingUtil.*
 import com.intellij.openapi.editor.highlighter.HighlighterIterator
 import com.intellij.openapi.fileTypes.FileType
 import com.intellij.psi.tree.IElementType
-import org.intellij.markdown.lexer.Stack
+import java.util.*
+import kotlin.collections.HashSet
 
 
 object BraceMatchingUtilAdapter {
-    val STRING_TOKEN_SET: MutableSet<String> = HashSet()
+    private val STRING_TOKEN_SET: MutableSet<String> = HashSet()
 
     init {
         STRING_TOKEN_SET.add(GROOVY_STRING_TOKEN)

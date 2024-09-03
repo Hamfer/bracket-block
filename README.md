@@ -1,8 +1,8 @@
 # bracket-block
 
 ![Build](https://github.com/Hamfer/bracket-block/workflows/Build/badge.svg)
-[![Version](https://img.shields.io/jetbrains/plugin/v/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
-[![Downloads](https://img.shields.io/jetbrains/plugin/d/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
+[![Version](https://img.shields.io/jetbrains/plugin/v/23199-bracket-block.svg)](https://plugins.jetbrains.com/plugin/23199-bracket-block)
+[![Downloads](https://img.shields.io/jetbrains/plugin/d/23199-bracket-block.svg)](https://plugins.jetbrains.com/plugin/23199-bracket-block)
 
 [//]: # (## Template ToDo list)
 
@@ -27,7 +27,9 @@
 [//]: # (- [ ] Click the <kbd>Watch</kbd> button on the top of the [IntelliJ Platform Plugin Template][template] to be notified about releases containing new features and fixes.)
 
 <!-- Plugin description -->
-Nested Block Highlighting for JetBrains Product
+Nested Block Highlighting for JetBrains Product.
+Enhance your coding experience with the Nested Block Highlighting Plugin for JetBrains IDEs!
+Usage: Just install the plugin, and It's ready to use.
 <!-- Plugin description end -->
 
 ## Installation

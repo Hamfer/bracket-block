@@ -5,7 +5,7 @@ import com.intellij.openapi.editor.event.EditorFactoryEvent
 import com.intellij.openapi.editor.event.EditorFactoryListener
 
 class BracketBlockEditorFactoryListener : EditorFactoryListener {
-    val bracketBlockEditorCaretListenerMap = HashMap<Editor, BracketBlockCaretListener>();
+    private val bracketBlockEditorCaretListenerMap = HashMap<Editor, BracketBlockCaretListener>()
 
     override fun editorCreated(event: EditorFactoryEvent) {
         bracketBlockEditorCaretListenerMap[event.editor] = BracketBlockCaretListener(event.editor)
