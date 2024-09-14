@@ -6,7 +6,6 @@ import com.intellij.ui.components.JBLabel
 import com.intellij.util.ui.FormBuilder
 import org.jetbrains.annotations.NotNull
 import java.awt.Color
-import javax.swing.JComponent
 import javax.swing.JPanel
 
 
@@ -15,8 +14,8 @@ class PluginSettingsComponent {
     private val borderColor = ColorPanel()
 
     init {
-        val state = PluginSettings.getInstance().state
-        borderColor.selectedColor = state.borderColor
+        val instance = PluginSettings.getInstance()
+        borderColor.selectedColor = instance.getBorderColor()
         mainPanel = FormBuilder.createFormBuilder().addLabeledComponent(JBLabel("Border color:"), borderColor, 1, false)
             .addComponentFillVertically(JPanel(), 0).panel
     }
@@ -25,16 +24,8 @@ class PluginSettingsComponent {
         return mainPanel
     }
 
-    fun getPreferredFocusedComponent(): JComponent {
-        return borderColor
-    }
-
     @NotNull
     fun getBorderColor(): Color {
         return borderColor.selectedColor ?: JBColor.WHITE
-    }
-
-    fun setBorderColor(color: Color) {
-        borderColor.selectedColor = color
     }
 }

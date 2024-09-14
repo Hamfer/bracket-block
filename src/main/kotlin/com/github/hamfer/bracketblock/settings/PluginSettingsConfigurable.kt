@@ -12,13 +12,13 @@ class PluginSettingsConfigurable : Configurable {
     }
 
     override fun isModified(): Boolean {
-        val state = PluginSettings.getInstance().state
-        return pluginSettingsComponent!!.getBorderColor() != state.borderColor
+        val instance = PluginSettings.getInstance()
+        return pluginSettingsComponent!!.getBorderColor() != instance.getBorderColor()
     }
 
     override fun apply() {
-        val state = PluginSettings.getInstance().state
-        state.borderColor = pluginSettingsComponent!!.getBorderColor()
+        val instance = PluginSettings.getInstance()
+        instance.setBorderColor(pluginSettingsComponent!!.getBorderColor())
     }
 
     override fun getDisplayName(): String {

@@ -21,6 +21,8 @@ class BracketBlockHighlighter(private val editor: Editor) {
 
     private var psiFile: PsiFile?
 
+    private var pluginSettings: PluginSettings = PluginSettings.getInstance()
+
     init {
         val languageList = Language.getRegisteredLanguages()
         psiFile = editor.project?.let { PsiDocumentManager.getInstance(it).getPsiFile(editor.document) }
@@ -101,9 +103,9 @@ class BracketBlockHighlighter(private val editor: Editor) {
 
     fun highlightBracketBlock(bracePair: BracePair?): RangeHighlighter? {
         return if (bracePair != null) {
-            val state = PluginSettings.getInstance().state
-            println(state.borderColor.toString())
-            val textAttribute = TextAttributes(null, null, state.borderColor, EffectType.ROUNDED_BOX, Font.PLAIN)
+            val textAttribute = TextAttributes(
+                null, null, pluginSettings.getBorderColor(), EffectType.ROUNDED_BOX, Font.PLAIN
+            )
             editor.markupModel.addRangeHighlighter(
                 bracePair.leftBrace.offset,
                 bracePair.rightBrace.offset,
