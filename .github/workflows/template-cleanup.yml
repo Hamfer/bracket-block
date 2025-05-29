@@ -45,11 +45,15 @@ jobs:
           find src -type f -exec sed -i "s/JetBrains/$ACTOR/g" {} +
 
           # Move content
-          mkdir -p src/main/kotlin/${GROUP//.//}
-          mkdir -p src/test/kotlin/${GROUP//.//}
-          cp -R .github/template-cleanup/. .
-          cp -R src/main/kotlin/org/jetbrains/plugins/template/* src/main/kotlin/${GROUP//.//}/
-          cp -R src/test/kotlin/org/jetbrains/plugins/template/* src/test/kotlin/${GROUP//.//}/
+          if [ -d "src/main/kotlin/org/jetbrains/plugins/template" ]; then
+            mkdir -p src/main/kotlin/${GROUP//.//}
+            mkdir -p src/test/kotlin/${GROUP//.//}
+            cp -R .github/template-cleanup/. .
+            cp -R src/main/kotlin/org/jetbrains/plugins/template/* src/main/kotlin/${GROUP//.//}/
+            cp -R src/test/kotlin/org/jetbrains/plugins/template/* src/test/kotlin/${GROUP//.//}/
+          else
+            echo "Source directory does not exist. Skipping file copy."
+          fi
 
           # Cleanup
           rm -rf \
